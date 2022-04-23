@@ -34,12 +34,12 @@ const Welcome = (props) => {
           <input
             type="text"
             name="from"
-            placeholder="Cuntry, City, Street, Number "
+            placeholder="Country, City, Street, Number "
           ></input>
           <input
             type="text"
             name="to"
-            placeholder="Cuntry, City, Street, Number "
+            placeholder="Country, City, Street, Number "
           ></input>
           <button className="button-3" type="submit">Prowadź</button>
           <button className="button-3" onClick={(e)=> {e.preventDefault(); props.showmap(false);}}>Wróć</button>
