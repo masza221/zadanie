@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState} from "react";
+import "./App.css";
+import Map from "./components/Map.js";
+import Welcome from "./components/Welcome";
 
 function App() {
+  const [showMap, setLoading] = useState(false);
+
+  const [geo, setGeo] = useState({
+    from: { lon: 0, lat: 0 },
+    to: { lon: 0, lat: 0 },
+  });
+
+  const [history, setHistory]= useState([])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Welcome
+        obj={(value) => setGeo(value)}
+        showmap={(value) => setLoading(value)}
+       
+      />
+      {showMap !== false && <Map geo={geo}  history={(value) => setHistory( old => [...old,value])} />}
     </div>
   );
 }
